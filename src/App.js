@@ -1,9 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
+import PersonList from './components/axios-library.js'
+
 
 function App() {
   return (
         <div>
+          <PersonList />
           <h1>DISPLAY ARTIST NAME:</h1>
           <h1>DISPLAY ARTIST PICTURE:</h1>
           <h1>DISPLAY ARTIST ALBUM:</h1>
