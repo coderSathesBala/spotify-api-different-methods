@@ -3,17 +3,12 @@ import axios from 'axios';
 import React from 'react';
 import SpotifyGetPlaylists from './spotifyGetPlaylists';
 
-const CLIENT_ID = 'f25a526cf53d42c7b794db522c42ab98'
+const CLIENT_ID = ''
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
 const REDIRECT_URL_AFTER_LOGIN = 'http://localhost:3000/webapp'
 const SPACE_DELIMITER= '%20'
 const SCOPES = ['user-read-currently-playing', 'user-read-playback-state']
 const SCOPES_URL_PARAM = SCOPES.join('%20')
-
-// http://localhost:3000/webapp#access_token=BQBESRBYqD4zBc6OJhHxx36vaF6zIvvDmQ9mOZ4tln6cME4U0sUMp1N2rOm0zb4McjEgFeeOVOQ36aKFSE0TRSYiOcVGr8abzNZLB_XIxf_70QX2SqIJExhzpxtkorwdyN5FWLRFC-bwxzFIn5zwSg&token_type=Bearer&expires_in=3600
-
-
-
 
 const getReturnedParamsFromSpotifyAuth = (hash) => {
     const stringAfterHashtag = hash.substring(1);
@@ -26,8 +21,6 @@ const getReturnedParamsFromSpotifyAuth = (hash) => {
     }, {});
     return paramsSplitUp;
 };
-
-
 
 const PersonList = () => {
     React.useEffect(() => {
@@ -49,7 +42,6 @@ const PersonList = () => {
 
     const handleLogIn = () => {
         window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog='true`
-        // window.location = `${SPOTIFY_AUTHORIZE_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URL_AFTER_LOGIN}&scope=${SCOPES_URL_PARAM}&response_type=token&show_dialog=true`;
     }
          return(
              <div>
