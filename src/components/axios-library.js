@@ -1,6 +1,7 @@
 // axios-library
 import axios from 'axios';
 import React from 'react';
+import SpotifyGetPlaylists from './spotifyGetPlaylists';
 
 const CLIENT_ID = 'f25a526cf53d42c7b794db522c42ab98'
 const SPOTIFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'
@@ -36,6 +37,12 @@ const PersonList = () => {
                 expires_in,
                 token_type
             } = getReturnedParamsFromSpotifyAuth(window.location.hash);
+        
+            localStorage.clear();
+
+            localStorage.setItem("accessToken", access_token);
+            localStorage.setItem("tokenType", token_type);
+            localStorage.setItem("expiresIn", expires_in);
         }
     });
 
